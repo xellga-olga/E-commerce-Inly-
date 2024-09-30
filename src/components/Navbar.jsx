@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 
-import Logo from "../assets/logo.webp";
+import Logo from "../assets/logo.jpeg";
 import Search_Icon from "../assets/search.svg";
 import User_Icon from "../assets/user.svg";
 import Cart_Icon from "../assets/cart.svg";
@@ -26,7 +26,7 @@ const Navbar = () => {
                <hr className="hidden w-2/4 h-[1.5px] border-none bg-gray-700" />
             </NavLink>
 
-            <NavLink to="/" className="fllex-col items-center gap-1">
+            <NavLink to="/" className="flex flex-col items-center gap-1">
                <p>ABOUT</p>
                <hr className="hidden w-2/4 h-[1.5px] border-none bg-gray-700" />
             </NavLink>
