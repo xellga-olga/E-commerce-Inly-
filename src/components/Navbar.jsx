@@ -21,17 +21,17 @@ const Navbar = () => {
                <hr className="hidden w-2/4 h-[1.5px] border-none bg-gray-700" />
             </NavLink>
 
-            <NavLink to="/" className="flex flex-col items-center gap-1">
+            <NavLink to="/Collection" className="flex flex-col items-center gap-1">
                <p>COLLECTION</p>
                <hr className="hidden w-2/4 h-[1.5px] border-none bg-gray-700" />
             </NavLink>
 
-            <NavLink to="/" className="flex flex-col items-center gap-1">
+            <NavLink to="/About" className="flex flex-col items-center gap-1">
                <p>ABOUT</p>
                <hr className="hidden w-2/4 h-[1.5px] border-none bg-gray-700" />
             </NavLink>
 
-            <NavLink to="/" className="flex flex-col items-center gap-1">
+            <NavLink to="/Contact" className="flex flex-col items-center gap-1">
                <p>CONTACT</p>
                <hr className="hidden w-2/4 h-[1.5px] border-none bg-gray-700" />
             </NavLink>
