@@ -14,6 +14,8 @@ const Collection = () => {
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
 
+  const [sortType, setSortType] = useState("relavent");
+
   const toggleCategory = (e) => {
     if (category.includes(e.target.value)) {
       setCategory((prev) => prev.filter((item) => item !== e.target.value));
@@ -40,16 +42,41 @@ const Collection = () => {
     }
 
     if (subCategory.length > 0) {
-      productsCopy = productsCopy.filter(item => subCategory.includes(item.subCategory))
+      productsCopy = productsCopy.filter((item) =>
+        subCategory.includes(item.subCategory)
+      );
     }
 
     setFilterProducts(productsCopy);
   };
 
+  const sortProduct = () => {
+    let fpCopy = products.slice();
+
+    switch (sortType) {
+      case "low-hight":
+        setFilterProducts(fpCopy.sort((a, b) => a.prive - b.price));
+
+        break;
+
+      case "hight-low":
+        setFilterProducts(fpCopy.sort((a, b) => b.price - a.price));
+
+        break;
+
+      default:
+        applyFilter();
+        break;
+    }
+  };
 
   useEffect(() => {
     applyFilter();
   }, [category, subCategory]);
+
+  useEffect(() => {
+    sortProduct();
+  }, [sortType]);
 
   // useEffect(() => {
   //   console.log(category)
@@ -181,7 +208,10 @@ const Collection = () => {
         <div className="flex justify-between text-base sm:text-2xl mb-4">
           <Title text1={"ALL"} text2={"COLLECTIONS"} />
           {/* Product Sort */}
-          <select className="border-2 text-sm px-2 border-gray-300">
+          <select
+            onChange={(e) => setSortType(e.target.value)}
+            className="border-2 text-sm px-2 border-gray-300"
+          >
             <option value="relavent">Sort by: Relavent</option>
             <option value="low-hight">Sort by: Low to Hight</option>
             <option value="hight-low">Sort by: Hight to Low</option>
