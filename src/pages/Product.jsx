@@ -4,6 +4,7 @@ import { ShopContext } from "../context/ShopContext";
 
 import star_icon from "../assets/star_icon.svg";
 import star_dull_icon from "../assets/star_dull_icon.svg";
+import RelatedProducts from "../components/RelatedProducts";
 
 const Product = () => {
   const { productId } = useParams();
@@ -88,6 +89,21 @@ const Product = () => {
           </div>
         </div>
       </div>
+
+      {/* Description & Review Section */}
+      <div className="mt-20">
+        <div className="flex">
+          <b className="border px-5 py-3 text-sm">Description</b>
+          <p className="border px-5 py-3 text-sm">Reviews (122)</p>
+        </div>
+        <div className="flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500">
+          <p>An e-commerce website is a digital platform designed for buying and selling products or services online. It acts as a virtual store where businesses and consumers can connect, allowing sellers to showcase their offerings and customers to browse, purchase, and pay—all without the need for a physical storefront. The rise in e-commerce popularity is driven by its ease of use, 24/7 availability, and the ability to reach a global audience.</p>
+          <p>These websites often feature product listings with detailed descriptions, high-quality images, prices, and options for variations such as size or color. Each product typically has a dedicated page providing all the necessary information for potential buyers.</p>
+        </div>
+      </div>
+
+      {/* Display related products */}
+      <RelatedProducts category={productData.category} subCategory={productData.subCategory}/>
     </div>
   ) : (
     <div className="opacity-0"></div>
