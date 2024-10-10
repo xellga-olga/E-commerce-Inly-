@@ -1,9 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
+import Bin from "../assets/bin.svg";
 
 const Cart = () => {
-  const { products, currency, cartItems } = useContext(ShopContext);
+  const { products, currency, cartItems, updateQuantity } =
+    useContext(ShopContext);
 
   const [cartData, setCartData] = useState([]);
 
@@ -65,6 +67,12 @@ const Cart = () => {
                 type="number"
                 min={1}
                 defaultValue={item.quantity}
+              />
+              <img
+                onClick={() => updateQuantity(item.id, item.size, 0)}
+                className="w-4 cursor-pointer mr-4 sm:w-5"
+                src={Bin}
+                alt="bin"
               />
             </div>
           );

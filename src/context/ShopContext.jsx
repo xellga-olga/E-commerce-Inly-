@@ -27,6 +27,16 @@ const ShopContextProvider = (props) => {
       return totalCount;
    };
 
+   const updateQuantity = async (itemId, size, quantity) => {
+
+      let cartData = structuredClone(cartItems)
+
+      cartData[itemId][size] = quantity
+
+      setCartItems(cartData)
+
+   }
+
    const addToCart = async (itemId, size) => {
       if (!size) {
          toast.error("Select Product Size");
@@ -63,6 +73,7 @@ const ShopContextProvider = (props) => {
       cartItems,
       addToCart,
       getCartCount,
+      updateQuantity
    };
 
    return (
