@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
 import Bin from "../assets/bin.svg";
+import CartTotal from "../components/CartTotal";
 
 const Cart = () => {
   const { products, currency, cartItems, updateQuantity } =
@@ -82,6 +83,15 @@ const Cart = () => {
             </div>
           );
         })}
+      </div>
+
+      <div className="flex my-20 justify-end">
+        <div className="w-full sm:w-[450px]">
+          <CartTotal />
+          <div className="w-full text-end">
+            <button className="text-white bg-black text-sm my-8 px-8 py-3 ">PROCEED TO CHECKOUT</button>
+          </div> 
+        </div>
       </div>
     </div>
   );
